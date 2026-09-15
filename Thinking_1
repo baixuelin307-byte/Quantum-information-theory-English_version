@@ -1,0 +1,77 @@
+My Thoughts on Classical and Quantum Information
+
+Classical Physical Systems
+
+In a classical physical system, a state is definite. At the physical transmission layer, information is mapped to the bits 0 and 1, and the value at each instant is well defined.
+
+In traditional communication, information is mapped to bits and then modulated, transmitted, demodulated, and decoded. A bit is an abstract representation of information; physical quantities such as voltage, current, light, and electromagnetic waves carry those bits. For example, a simple digital circuit may define:
+
+0 {Low voltage}
+
+1 {High voltage}
+
+Quantum Principles
+
+When a physical system obeys the following principles, it can carry quantum information.
+
+1. Superposition
+
+A qubit need not be simply 0 or 1. A quantum state can be a linear combination of basis states:
+
+|ψ⟩ = α|0⟩ + β|1⟩
+
+2. Probabilistic Measurement
+
+A definite result is obtained only when the system is measured:
+
+P(0) = |α|²
+
+P(1) = |β|²
+
+3. Measurement Changes the Quantum State
+
+Measurement generally changes the quantum state. For example, if a computational-basis measurement produces outcome 0, the original superposition collapses to:
+
+|0⟩
+
+If the outcome is 1, it collapses to:
+
+|1⟩
+
+This measurement disturbance is one of the ideas that allows quantum key distribution (QKD) to detect eavesdropping.
+
+4. Unitary Evolution
+
+Before measurement, an ideal closed quantum system evolves through unitary transformations:
+
+|ψ'⟩ = U|ψ⟩
+
+where U is a unitary operator.
+
+5. Entanglement
+
+Several quantum systems can form a joint state that cannot be decomposed into independent states of the individual systems. For example:
+
+|Φ+⟩ = 1/√2 (|00⟩ + |11⟩)
+
+This expression describes an entangled state of two qubits. The number of qubits in a system depends on how the system is designed: it may contain one qubit, four qubits, or more.
+
+6. No-Cloning Theorem
+
+An arbitrary unknown quantum state cannot be copied perfectly. There is no universal quantum operation that performs the following transformation for every unknown state |ψ⟩:
+
+|ψ⟩|0⟩ → |ψ⟩|ψ⟩
+
+One way to understand this result is that quantum mechanics permits linear evolution, whereas perfectly turning every unknown state into two identical copies would require a transformation incompatible with that linearity.
+
+Communication Chains
+
+Based on these principles, a quantum encoder can encode classical information into quantum states.
+
+Traditional communication:
+
+Classical Information → Bits → Encoder → Modulation → Classical Channel → Received Signal → Demodulation/Decoder → Recovered Information
+
+Quantum communication:
+
+Classical Information → Bits → Quantum Encoder → Quantum State → Quantum Channel → Noisy Quantum State → Measurement → Decoder → Recovered Information
