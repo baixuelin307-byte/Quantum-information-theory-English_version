@@ -326,3 +326,159 @@ P(\text{success})
 =
 \frac{7}{12}
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Phase Kickback Example: CNOT on \(|+\rangle|-\rangle\)
+
+### 1. Initial State
+
+Control qubit:
+
+```math
+|+\rangle=\frac{|0\rangle+|1\rangle}{\sqrt{2}}
+```
+
+Target qubit:
+
+```math
+|-\rangle=\frac{|0\rangle-|1\rangle}{\sqrt{2}}
+```
+
+Therefore, the two-qubit state is:
+
+```math
+|+\rangle|-\rangle
+=
+\frac{1}{2}
+\left(
+|00\rangle-|01\rangle+|10\rangle-|11\rangle
+\right)
+```
+
+---
+
+### 2. Apply CNOT
+
+The CNOT rules are:
+
+```math
+|00\rangle\rightarrow|00\rangle
+```
+
+```math
+|01\rangle\rightarrow|01\rangle
+```
+
+because the control qubit is `0`, so the target does not change.
+
+For the states where the control qubit is `1`:
+
+```math
+|10\rangle\rightarrow|11\rangle
+```
+
+```math
+|11\rangle\rightarrow|10\rangle
+```
+
+because the target qubit is flipped.
+
+So the original state
+
+```math
+\frac{1}{2}
+\left(
+|00\rangle-|01\rangle+|10\rangle-|11\rangle
+\right)
+```
+
+becomes
+
+```math
+\frac{1}{2}
+\left(
+|00\rangle-|01\rangle+|11\rangle-|10\rangle
+\right)
+```
+
+Now look at the last two terms.
+
+Originally:
+
+```math
++|10\rangle-|11\rangle
+```
+
+After CNOT:
+
+```math
++|11\rangle-|10\rangle
+```
+
+which can be rewritten as:
+
+```math
+-\left(|10\rangle-|11\rangle\right)
+```
+
+Therefore, the whole state becomes:
+
+```math
+\frac{1}{2}
+\left[
+\left(|00\rangle-|01\rangle\right)
+-
+\left(|10\rangle-|11\rangle\right)
+\right]
+```
+
+Factorizing:
+
+```math
+=
+\frac{|0\rangle-|1\rangle}{\sqrt{2}}
+\otimes
+\frac{|0\rangle-|1\rangle}{\sqrt{2}}
+```
+
+Since
+
+```math
+|-\rangle=
+\frac{|0\rangle-|1\rangle}{\sqrt{2}}
+```
+
+we obtain:
+
+```math
+\boxed{|-\rangle\otimes|-\rangle}
+```
+
+Therefore:
+
+```math
+\boxed{
+\operatorname{CNOT}
+\left(
+|+\rangle|-\rangle
+\right)
+=
+|-\rangle|-\rangle
+}
+```
