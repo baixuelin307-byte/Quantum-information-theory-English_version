@@ -1,87 +1,163 @@
-## Case 2: $e \neq k$
+## Trine-State Strategy: Why Is the Success Probability $7/12$?
 
-The probability of this case is:
-
-$$
-P(e \neq k)=\frac{2}{3}
-$$
-
-Any two different trine states are separated by:
+Alice wants to send a trit
 
 $$
-120^\circ
+k \in \{0,1,2\}.
 $$
 
-Therefore,
+She encodes $k$ into the corresponding trine state
 
 $$
-|\langle \phi_e | \phi_k \rangle|^2
-=
-\cos^2 120^\circ
-=
-\left(-\frac{1}{2}\right)^2
-=
-\frac{1}{4}
+|\phi_k\rangle.
 $$
 
-So the probability of obtaining the measurement outcome
+Bob does not know $k$, so he randomly chooses
+
+$$
+e \in \{0,1,2\}.
+$$
+
+Since the three values are equally likely,
+
+$$
+P(e=k)=\frac{1}{3}
+$$
+
+and
+
+$$
+P(e\neq k)=\frac{2}{3}.
+$$
+
+Bob then measures in the basis
+
+$$
+\{|\phi_e\rangle,|\phi_e^\perp\rangle\}.
+$$
+
+---
+
+### Case 1: $e=k$
+
+This happens with probability
+
+$$
+P(e=k)=\frac{1}{3}.
+$$
+
+Since
+
+$$
+|\phi_k\rangle=|\phi_e\rangle,
+$$
+
+Bob obtains the outcome
 
 $$
 |\phi_e\rangle
 $$
 
-is
+with probability $1$.
+
+He outputs $e$, and because $e=k$, the answer is correct.
+
+Therefore,
 
 $$
-\frac{1}{4}
+P(\text{success}\mid e=k)=1.
 $$
 
-If this happens, Bob outputs $e$.
+The contribution of this case to the total success probability is
+
+$$
+\frac{1}{3}\times 1=\frac{1}{3}.
+$$
+
+---
+
+### Case 2: $e\neq k$
+
+This happens with probability
+
+$$
+P(e\neq k)=\frac{2}{3}.
+$$
+
+Two different trine states are separated by
+
+$$
+120^\circ.
+$$
+
+Therefore, the probability of obtaining the outcome $|\phi_e\rangle$ is
+
+$$
+|\langle\phi_e|\phi_k\rangle|^2.
+$$
+
+Because
+
+$$
+\langle\phi_e|\phi_k\rangle=\cos 120^\circ=-\frac{1}{2},
+$$
+
+we get
+
+$$
+|\langle\phi_e|\phi_k\rangle|^2
+=
+\left(-\frac{1}{2}\right)^2
+=
+\frac{1}{4}.
+$$
+
+So,
+
+$$
+P(|\phi_e\rangle)=\frac{1}{4}.
+$$
+
+If this outcome occurs, Bob outputs $e$.
 
 However,
 
 $$
-e \neq k
+e\neq k,
 $$
 
-so this answer is incorrect.
+so Bob is wrong.
 
----
-
-Therefore, the probability of obtaining the other measurement outcome
+The other possible measurement outcome is
 
 $$
-|\phi_e^\perp\rangle
+|\phi_e^\perp\rangle.
 $$
 
-is
+Its probability is
 
 $$
+P(|\phi_e^\perp\rangle)
+=
 1-\frac{1}{4}
 =
-\frac{3}{4}
+\frac{3}{4}.
 $$
 
-When Bob obtains $|\phi_e^\perp\rangle$, he knows that
+If Bob gets $|\phi_e^\perp\rangle$, he knows that the true value is not $e$.
+
+There were originally three possibilities,
 
 $$
-k \neq e
+\{0,1,2\}.
 $$
 
-Originally, there are three possible values:
+After excluding $e$, only two possibilities remain.
+
+Bob chooses randomly between these two values, so
 
 $$
-\{0,1,2\}
-$$
-
-After excluding $e$, only two possible values remain.
-
-Bob randomly guesses between these two values, so
-
-$$
-P(\text{correct guess})
-=
-\frac{1}{2}
+P(\text{correct guess})=\frac{1}{2}.
 $$
 
 Therefore,
@@ -89,11 +165,9 @@ Therefore,
 $$
 P(\text{success}\mid e\neq k)
 =
-\frac{3}{4}
-\times
-\frac{1}{2}
+\frac{3}{4}\times\frac{1}{2}
 =
-\frac{3}{8}
+\frac{3}{8}.
 $$
 
 ---
@@ -107,7 +181,7 @@ P(\text{success})
 =
 P(e=k)P(\text{success}\mid e=k)
 +
-P(e\neq k)P(\text{success}\mid e\neq k)
+P(e\neq k)P(\text{success}\mid e\neq k).
 $$
 
 Substituting the values,
@@ -117,7 +191,7 @@ P(\text{success})
 =
 \frac{1}{3}\times 1
 +
-\frac{2}{3}\times\frac{3}{8}
+\frac{2}{3}\times\frac{3}{8}.
 $$
 
 Therefore,
@@ -127,9 +201,7 @@ P(\text{success})
 =
 \frac{1}{3}
 +
-\frac{1}{4}
-=
-\frac{7}{12}
+\frac{1}{4}.
 $$
 
 Thus,
@@ -137,8 +209,14 @@ Thus,
 $$
 P(\text{success})
 =
-\frac{7}{12}
-\approx 0.583
+\frac{7}{12}.
+$$
+
+Numerically,
+
+$$
+P(\text{success})
+\approx 0.583.
 $$
 
 ---
@@ -154,10 +232,10 @@ $$
 is the probability of obtaining the measurement outcome
 
 $$
-|\phi_e^\perp\rangle
+|\phi_e^\perp\rangle.
 $$
 
-It does **not** mean that there are four possible states.
+It is not related to the number of possible states.
 
 The factor
 
@@ -165,14 +243,12 @@ $$
 \frac{1}{2}
 $$
 
-comes from the fact that, after excluding $e$, Bob must guess between the remaining two possible values.
+comes from guessing between the two remaining possible values after excluding $e$.
 
 Therefore,
 
 $$
-\frac{3}{4}
-\times
-\frac{1}{2}
+\frac{3}{4}\times\frac{1}{2}
 =
-\frac{3}{8}
+\frac{3}{8}.
 $$
