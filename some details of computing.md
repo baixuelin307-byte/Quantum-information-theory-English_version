@@ -1,254 +1,328 @@
-## Trine-State Strategy: Why Is the Success Probability $7/12$?
+### Trine-State Strategy: Why Is the Success Probability $7/12$?
 
-Alice wants to send a trit
+Alice wants to send a trit:
 
-$$
-k \in \{0,1,2\}.
-$$
+```math
+k \in \{0,1,2\}
+```
 
-She encodes $k$ into the corresponding trine state
+She encodes $k$ into the corresponding trine state:
 
-$$
-|\phi_k\rangle.
-$$
+```math
+|\phi_k\rangle
+```
 
-Bob does not know $k$, so he randomly chooses
+Bob does not know $k$, so he randomly chooses:
 
-$$
-e \in \{0,1,2\}.
-$$
+```math
+e \in \{0,1,2\}
+```
 
-Since the three values are equally likely,
+Since the three values are equally likely:
 
-$$
+```math
 P(e=k)=\frac{1}{3}
-$$
+```
 
 and
 
-$$
-P(e\neq k)=\frac{2}{3}.
-$$
+```math
+P(e\neq k)=\frac{2}{3}
+```
 
-Bob then measures in the basis
+Bob then measures in the basis:
 
-$$
-\{|\phi_e\rangle,|\phi_e^\perp\rangle\}.
-$$
+```math
+\{|\phi_e\rangle,\ |\phi_e^\perp\rangle\}
+```
 
 ---
 
 ### Case 1: $e=k$
 
-This happens with probability
+This happens with probability:
 
-$$
-P(e=k)=\frac{1}{3}.
-$$
+```math
+P(e=k)=\frac{1}{3}
+```
 
-Since
+In this case, the received state is exactly:
 
-$$
-|\phi_k\rangle=|\phi_e\rangle,
-$$
+```math
+|\phi_k\rangle=|\phi_e\rangle
+```
 
-Bob obtains the outcome
+Therefore, Bob obtains the measurement outcome:
 
-$$
+```math
 |\phi_e\rangle
-$$
+```
 
-with probability $1$.
+with probability 1.
 
-He outputs $e$, and because $e=k$, the answer is correct.
+Bob then outputs $e$.
 
-Therefore,
+Since:
 
-$$
-P(\text{success}\mid e=k)=1.
-$$
+```math
+e=k
+```
 
-The contribution of this case to the total success probability is
+his answer is correct.
 
-$$
-\frac{1}{3}\times 1=\frac{1}{3}.
-$$
+Therefore:
+
+```math
+P(\text{success}\mid e=k)=1
+```
+
+The contribution of this case to the total success probability is:
+
+```math
+\frac{1}{3}\times 1=\frac{1}{3}
+```
 
 ---
 
 ### Case 2: $e\neq k$
 
-This happens with probability
+This happens with probability:
 
-$$
-P(e\neq k)=\frac{2}{3}.
-$$
+```math
+P(e\neq k)=\frac{2}{3}
+```
 
-Two different trine states are separated by
+Any two different trine states are separated by:
 
-$$
-120^\circ.
-$$
+```math
+120^\circ
+```
 
-Therefore, the probability of obtaining the outcome $|\phi_e\rangle$ is
+Therefore, the overlap between the true state $|\phi_k\rangle$ and the measurement state $|\phi_e\rangle$ is:
 
-$$
-|\langle\phi_e|\phi_k\rangle|^2.
-$$
-
-Because
-
-$$
-\langle\phi_e|\phi_k\rangle=\cos 120^\circ=-\frac{1}{2},
-$$
-
-we get
-
-$$
-|\langle\phi_e|\phi_k\rangle|^2
+```math
+|\langle \phi_e|\phi_k\rangle|^2
+=
+\cos^2 120^\circ
 =
 \left(-\frac{1}{2}\right)^2
 =
-\frac{1}{4}.
-$$
+\frac{1}{4}
+```
 
-So,
+So the probability of obtaining the measurement outcome:
 
-$$
-P(|\phi_e\rangle)=\frac{1}{4}.
-$$
+```math
+|\phi_e\rangle
+```
 
-If this outcome occurs, Bob outputs $e$.
+is:
 
-However,
+```math
+\frac{1}{4}
+```
 
-$$
-e\neq k,
-$$
+If this happens, Bob outputs $e$.
 
-so Bob is wrong.
+However:
 
-The other possible measurement outcome is
+```math
+e\neq k
+```
 
-$$
-|\phi_e^\perp\rangle.
-$$
+so Bob's answer is incorrect.
 
-Its probability is
+---
 
-$$
-P(|\phi_e^\perp\rangle)
-=
+The other possible measurement outcome is:
+
+```math
+|\phi_e^\perp\rangle
+```
+
+Its probability is:
+
+```math
 1-\frac{1}{4}
 =
-\frac{3}{4}.
-$$
+\frac{3}{4}
+```
 
-If Bob gets $|\phi_e^\perp\rangle$, he knows that the true value is not $e$.
+When Bob obtains $|\phi_e^\perp\rangle$, he knows that the true value is not $e$:
 
-There were originally three possibilities,
+```math
+k\neq e
+```
 
-$$
-\{0,1,2\}.
-$$
+Originally, there are three possible values:
 
-After excluding $e$, only two possibilities remain.
+```math
+\{0,1,2\}
+```
 
-Bob chooses randomly between these two values, so
+After excluding $e$, only two possible values remain.
 
-$$
-P(\text{correct guess})=\frac{1}{2}.
-$$
+Bob randomly guesses between these two remaining values.
 
-Therefore,
+Therefore:
 
-$$
+```math
+P(\text{correct guess})=\frac{1}{2}
+```
+
+Thus, when $e\neq k$, the success probability is:
+
+```math
 P(\text{success}\mid e\neq k)
 =
 \frac{3}{4}\times\frac{1}{2}
 =
-\frac{3}{8}.
-$$
+\frac{3}{8}
+```
 
 ---
 
 ## Total Success Probability
 
-Using the law of total probability,
+There are two possible cases:
 
-$$
+```text
+Case 1: e = k
+Probability = 1/3
+Success probability = 1
+
+Case 2: e ≠ k
+Probability = 2/3
+Success probability = 3/8
+```
+
+Using the law of total probability:
+
+```math
 P(\text{success})
 =
 P(e=k)P(\text{success}\mid e=k)
 +
-P(e\neq k)P(\text{success}\mid e\neq k).
-$$
+P(e\neq k)P(\text{success}\mid e\neq k)
+```
 
-Substituting the values,
+Substituting the values:
 
-$$
+```math
 P(\text{success})
 =
 \frac{1}{3}\times 1
 +
-\frac{2}{3}\times\frac{3}{8}.
-$$
+\frac{2}{3}\times\frac{3}{8}
+```
 
-Therefore,
+Therefore:
 
-$$
+```math
 P(\text{success})
 =
 \frac{1}{3}
 +
-\frac{1}{4}.
-$$
+\frac{1}{4}
+```
 
-Thus,
+Hence:
 
-$$
+```math
 P(\text{success})
 =
-\frac{7}{12}.
-$$
+\frac{7}{12}
+```
 
-Numerically,
+Numerically:
 
-$$
+```math
 P(\text{success})
-\approx 0.583.
-$$
+\approx 0.583
+```
+
+So the final success probability is:
+
+```math
+\boxed{
+P(\text{success})=\frac{7}{12}\approx 0.583
+}
+```
 
 ---
 
 ## Key Point
 
-The factor
+The factor:
 
-$$
+```math
 \frac{3}{4}
-$$
+```
 
-is the probability of obtaining the measurement outcome
+is the probability of obtaining the measurement outcome:
 
-$$
-|\phi_e^\perp\rangle.
-$$
+```math
+|\phi_e^\perp\rangle
+```
 
-It is not related to the number of possible states.
+It does **not** mean that there are four possible states.
 
-The factor
+The reason is that, when $e\neq k$:
 
-$$
+```math
+P(|\phi_e\rangle)
+=
+|\langle\phi_e|\phi_k\rangle|^2
+=
+\frac{1}{4}
+```
+
+Therefore:
+
+```math
+P(|\phi_e^\perp\rangle)
+=
+1-\frac{1}{4}
+=
+\frac{3}{4}
+```
+
+The factor:
+
+```math
 \frac{1}{2}
-$$
+```
 
-comes from guessing between the two remaining possible values after excluding $e$.
+comes from the fact that after excluding $e$, only two possible values remain.
 
-Therefore,
+Bob randomly chooses between these two values, so:
 
-$$
+```math
+P(\text{correct guess})=\frac{1}{2}
+```
+
+Therefore:
+
+```math
 \frac{3}{4}\times\frac{1}{2}
 =
-\frac{3}{8}.
-$$
+\frac{3}{8}
+```
+
+So:
+
+```math
+P(\text{success}\mid e\neq k)=\frac{3}{8}
+```
+
+and finally:
+
+```math
+P(\text{success})
+=
+\frac{1}{3}
++
+\frac{2}{3}\times\frac{3}{8}
+=
+\frac{7}{12}
+```
