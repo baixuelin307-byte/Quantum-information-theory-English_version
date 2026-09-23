@@ -344,7 +344,7 @@ P(\text{success})
 
 
 
-## Phase Kickback Example: CNOT on \(|+\rangle|-\rangle\)
+
 
 ### 1. Initial State
 
