@@ -467,14 +467,14 @@ Since
 we obtain:
 
 ```math
-\boxed{|-\rangle\otimes|-\rangle}
+|-\rangle\otimes|-\rangle
 ```
 
 Therefore:
 
 ```math
 \boxed{
-\operatorname{CNOT}
+\mathrm{CNOT}
 \left(
 |+\rangle|-\rangle
 \right)
