@@ -93,7 +93,7 @@ Superdense coding uses three main steps.
 
 Bob prepares the Bell state
 
-### Bell State
+
 
 $$
 |\Phi^+\rangle
