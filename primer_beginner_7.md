@@ -97,14 +97,7 @@ Bob prepares the Bell state
 
 # Bell State
 
-$$
-|\Phi^+\rangle
-=
-\frac{1}{\sqrt2}
-\left(
-|00\rangle+|11\rangle
-\right)
-$$
+# $|\Phi^+\rangle = \frac{1}{\sqrt2}\left(|00\rangle+|11\rangle\right)$
 
 Bob keeps the second qubit and sends the first qubit to Alice.
 
