@@ -148,3 +148,16 @@ first qubit  ← entangled →  second qubit
 8. Bob identifies which Bell state he obtained and recovers Alice's original two classical bits:
 
    `00 / 01 / 10 / 11`
+
+
+1. Alice and Bob initially each hold one qubit.
+
+2. The two qubits are jointly in a **Bell state**.
+
+3. Alice applies an operation only to her own qubit.
+
+4. Because the two qubits are entangled, Alice's operation changes the **joint Bell state of the two qubits**.
+
+5. Alice sends her qubit to Bob.
+
+6. Bob now holds both qubits and performs a Bell-state measurement to determine which Bell state the two qubits are in.
