@@ -25,94 +25,104 @@ $$
 with
 
 $$
-|\alpha_0|^2+|\alpha_1|^2+|\alpha_2|^2=1.
+|\alpha_0|^2
++
+|\alpha_1|^2
++
+|\alpha_2|^2
+=
+1
 $$
 
 A normal computational-basis measurement distinguishes
 
 $$
-|0\rangle,\quad |1\rangle,\quad |2\rangle.
+|0\rangle,\quad |1\rangle,\quad |2\rangle
 $$
 
-But we can instead divide the space into two subspaces:
+But we can instead divide the space into two subspaces.
+
+The first subspace is
 
 $$
-\text{plane}
-=
-\operatorname{span}\{|0\rangle,|1\rangle\}
+\mathrm{span}\{|0\rangle,|1\rangle\}
 $$
 
-and
+and the second subspace is
 
 $$
-\text{line}
-=
-\operatorname{span}\{|2\rangle\}.
+\mathrm{span}\{|2\rangle\}
 $$
 
-Then the measurement has only two possible outcomes.
+Therefore, the measurement has only two possible outcomes.
+
+---
 
 ### Projectors
 
-The projector onto the plane is
+The projector onto the first subspace is
 
 $$
-\Pi_{\text{plane}}
+\Pi_{\mathrm{plane}}
 =
 \begin{bmatrix}
-1&0&0\\
-0&1&0\\
-0&0&0
-\end{bmatrix}.
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 0
+\end{bmatrix}
+$$
+
+Applying it to the state gives
+
+$$
+\Pi_{\mathrm{plane}}|\psi\rangle
+=
+\alpha_0|0\rangle
++
+\alpha_1|1\rangle
+$$
+
+The projector onto the second subspace is
+
+$$
+\Pi_{\mathrm{line}}
+=
+\begin{bmatrix}
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
 $$
 
 Applying it gives
 
 $$
-\Pi_{\text{plane}}|\psi\rangle
+\Pi_{\mathrm{line}}|\psi\rangle
 =
-\alpha_0|0\rangle+\alpha_1|1\rangle.
-$$
-
-The projector onto the line is
-
-$$
-\Pi_{\text{line}}
-=
-\begin{bmatrix}
-0&0&0\\
-0&0&0\\
-0&0&1
-\end{bmatrix}.
-$$
-
-Applying it gives
-
-$$
-\Pi_{\text{line}}|\psi\rangle
-=
-\alpha_2|2\rangle.
+\alpha_2|2\rangle
 $$
 
 The probabilities are
 
 $$
-P(\text{plane})
+P(\mathrm{plane})
 =
-|\alpha_0|^2+|\alpha_1|^2
+|\alpha_0|^2
++
+|\alpha_1|^2
 $$
 
 and
 
 $$
-P(\text{line})
+P(\mathrm{line})
 =
-|\alpha_2|^2.
+|\alpha_2|^2
 $$
 
 ---
 
-## Properties of a Projector
+### Properties of a Projector
 
 An orthogonal projector $\Pi$ satisfies
 
@@ -123,7 +133,7 @@ $$
 and
 
 $$
-\Pi^2=\Pi.
+\Pi^2=\Pi
 $$
 
 Here, $\Pi^\dagger$ is the **conjugate transpose** of $\Pi$.
@@ -147,26 +157,26 @@ means that projecting twice gives the same result as projecting once.
 A complete projective measurement satisfies
 
 $$
-\sum_k \Pi_k=I.
+\sum_k \Pi_k=I
 $$
 
 ---
 
-## Measurement Probability
+### Measurement Probability
 
 For a state $|\psi\rangle$, the probability of obtaining outcome $k$ is
 
 $$
 P(k)
 =
-\langle\psi|\Pi_k|\psi\rangle.
+\langle\psi|\Pi_k|\psi\rangle
 $$
 
 After obtaining outcome $k$, the state becomes
 
 $$
 \frac{\Pi_k|\psi\rangle}
-{\sqrt{\langle\psi|\Pi_k|\psi\rangle}}.
+{\sqrt{\langle\psi|\Pi_k|\psi\rangle}}
 $$
 
 The denominator normalizes the state.
@@ -177,7 +187,7 @@ The denominator normalizes the state.
 
 A **local measurement** means measuring only part of a multi-qubit system.
 
-Consider
+Consider a two-qubit state
 
 $$
 |\psi\rangle
@@ -188,17 +198,19 @@ $$
 +
 \alpha_{10}|10\rangle
 +
-\alpha_{11}|11\rangle.
+\alpha_{11}|11\rangle
 $$
 
 Suppose we measure only the **first qubit**.
 
+---
+
 ### First Qubit = 0
 
-The state is projected onto
+If the first qubit is measured as $0$, the state is projected onto
 
 $$
-\operatorname{span}\{|00\rangle,|01\rangle\}.
+\mathrm{span}\{|00\rangle,|01\rangle\}
 $$
 
 The unnormalized state becomes
@@ -206,7 +218,7 @@ The unnormalized state becomes
 $$
 \alpha_{00}|00\rangle
 +
-\alpha_{01}|01\rangle.
+\alpha_{01}|01\rangle
 $$
 
 The probability is
@@ -216,15 +228,17 @@ P(0)
 =
 |\alpha_{00}|^2
 +
-|\alpha_{01}|^2.
+|\alpha_{01}|^2
 $$
+
+---
 
 ### First Qubit = 1
 
-The state is projected onto
+If the first qubit is measured as $1$, the state is projected onto
 
 $$
-\operatorname{span}\{|10\rangle,|11\rangle\}.
+\mathrm{span}\{|10\rangle,|11\rangle\}
 $$
 
 The unnormalized state becomes
@@ -232,7 +246,7 @@ The unnormalized state becomes
 $$
 \alpha_{10}|10\rangle
 +
-\alpha_{11}|11\rangle.
+\alpha_{11}|11\rangle
 $$
 
 The probability is
@@ -242,12 +256,12 @@ P(1)
 =
 |\alpha_{10}|^2
 +
-|\alpha_{11}|^2.
+|\alpha_{11}|^2
 $$
 
 ---
 
-## Local Measurement Projectors
+### Local Measurement Projectors
 
 Measuring the first qubit is described by
 
@@ -264,28 +278,28 @@ $$
 \Pi_1
 =
 |1\rangle\langle1|
-\otimes I.
+\otimes I
 $$
 
-The identity $I$ means that the second qubit is not directly measured.
+The identity $I$ means that the second qubit is **not measured**.
 
-So:
+So we can understand local measurement as
 
 $$
-\text{measure first qubit}
+\text{measurement on first qubit}
 =
-\text{project first qubit}
+\text{projector on first qubit}
 \otimes
-\text{do nothing to second qubit}.
+I
 $$
 
 ---
 
-## Measuring Part of a Larger System
+### Measuring Part of a Larger System
 
 Suppose we have four qubits and only measure the second and third qubits.
 
-One possible projector is
+For example,
 
 $$
 I
@@ -294,10 +308,10 @@ I
 \otimes
 |0\rangle\langle0|
 \otimes
-I.
+I
 $$
 
-Interpretation:
+means
 
 ```text
 Qubit 1: not measured → I
@@ -308,27 +322,28 @@ Qubit 4: not measured → I
 
 General rule:
 
-> Measured qubits use projectors such as $|0\rangle\langle0|$ or $|1\rangle\langle1|$, while unmeasured qubits use $I$.
+- measured qubit → use a projector such as $|0\rangle\langle0|$ or $|1\rangle\langle1|$
+- unmeasured qubit → use $I$
 
 ---
 
-## Product States and Local Measurement
+### Product States and Local Measurement
 
 Suppose the state is separable:
 
 $$
-|\psi\rangle\otimes|\phi\rangle.
+|\psi\rangle\otimes|\phi\rangle
 $$
 
-If we measure only the first qubit, the second state $|\phi\rangle$ is unchanged.
+If we measure only the first qubit, the second state $|\phi\rangle$ remains unchanged.
 
-For an entangled state, measuring one qubit can change the joint state of the whole system.
+For an entangled state, measuring one qubit can change the **joint state** of the whole system.
 
 ---
 
-# 8.3 Order of Local Measurements
+## 8.3 Order of Local Measurements
 
-For a general two-qubit state
+Consider
 
 $$
 |\psi\rangle
@@ -339,25 +354,25 @@ $$
 +
 \alpha_{10}|10\rangle
 +
-\alpha_{11}|11\rangle,
+\alpha_{11}|11\rangle
 $$
 
-the joint measurement probabilities are
+The joint measurement probabilities are
 
 $$
-P(00)=|\alpha_{00}|^2,
-$$
-
-$$
-P(01)=|\alpha_{01}|^2,
+P(00)=|\alpha_{00}|^2
 $$
 
 $$
-P(10)=|\alpha_{10}|^2,
+P(01)=|\alpha_{01}|^2
 $$
 
 $$
-P(11)=|\alpha_{11}|^2.
+P(10)=|\alpha_{10}|^2
+$$
+
+$$
+P(11)=|\alpha_{11}|^2
 $$
 
 Alice's probability of measuring $0$ is
@@ -367,7 +382,7 @@ P(A=0)
 =
 |\alpha_{00}|^2
 +
-|\alpha_{01}|^2.
+|\alpha_{01}|^2
 $$
 
 Bob's probability of measuring $0$ is
@@ -377,10 +392,10 @@ P(B=0)
 =
 |\alpha_{00}|^2
 +
-|\alpha_{10}|^2.
+|\alpha_{10}|^2
 $$
 
-For local measurements on different qubits:
+For local measurements on different qubits, the measurement order does not change the final joint statistics.
 
 ```text
 Alice measures first
@@ -390,15 +405,11 @@ Bob measures first
 both measure simultaneously
 ```
 
-in terms of the final measurement statistics.
-
-So the order of local measurements does not change the final joint probabilities.
-
 ---
 
-## Local Operations Cannot Change the Other Side's Probabilities
+### Local Operations Cannot Change the Other Side's Measurement Probabilities
 
-The state can be written as
+The state can be rewritten as
 
 $$
 |\psi\rangle
@@ -409,38 +420,42 @@ $$
 +
 \beta_1|1\rangle
 \otimes
-(\delta_0|0\rangle+\delta_1|1\rangle).
+(\delta_0|0\rangle+\delta_1|1\rangle)
 $$
 
-Here,
+where
 
 $$
-\beta_0^2
+|\beta_0|^2
 =
-|\alpha_{00}|^2+|\alpha_{01}|^2
+|\alpha_{00}|^2
++
+|\alpha_{01}|^2
 $$
 
 and
 
 $$
-\beta_1^2
+|\beta_1|^2
 =
-|\alpha_{10}|^2+|\alpha_{11}|^2.
+|\alpha_{10}|^2
++
+|\alpha_{11}|^2
 $$
 
 Therefore,
 
 $$
-P(A=0)=\beta_0^2
+P(A=0)=|\beta_0|^2
 $$
 
 and
 
 $$
-P(A=1)=\beta_1^2.
+P(A=1)=|\beta_1|^2
 $$
 
-Now suppose Bob applies a unitary $U$ only to his qubit.
+Now suppose Bob applies a unitary operation $U$ only to his qubit.
 
 The state becomes
 
@@ -451,7 +466,7 @@ U(\gamma_0|0\rangle+\gamma_1|1\rangle)
 +
 \beta_1|1\rangle
 \otimes
-U(\delta_0|0\rangle+\delta_1|1\rangle).
+U(\delta_0|0\rangle+\delta_1|1\rangle)
 $$
 
 The coefficients $\beta_0$ and $\beta_1$ do not change.
@@ -459,13 +474,13 @@ The coefficients $\beta_0$ and $\beta_1$ do not change.
 Therefore,
 
 $$
-P(A=0)=\beta_0^2
+P(A=0)=|\beta_0|^2
 $$
 
 and
 
 $$
-P(A=1)=\beta_1^2
+P(A=1)=|\beta_1|^2
 $$
 
 remain unchanged.
@@ -474,56 +489,56 @@ So Bob cannot change Alice's local measurement probabilities simply by applying 
 
 ---
 
-# 8.4 Bell Basis Encoding
+## 8.4 Bell Basis Encoding
 
-Two classical bits can be encoded in the computational basis:
-
-$$
-00\rightarrow |00\rangle
-$$
+Two classical bits can be represented using the computational basis:
 
 $$
-01\rightarrow |01\rangle
+00\rightarrow|00\rangle
 $$
 
 $$
-10\rightarrow |10\rangle
+01\rightarrow|01\rangle
 $$
 
 $$
-11\rightarrow |11\rangle.
+10\rightarrow|10\rangle
 $$
 
-If Alice holds the first qubit, measuring it reveals the first classical bit.
+$$
+11\rightarrow|11\rangle
+$$
+
+If Alice holds the first qubit, measuring it directly reveals the first classical bit.
 
 ---
 
-## Encoding with the Bell Basis
+### Encoding with the Bell Basis
 
-The same two classical bits can also be encoded using Bell states:
+The same two classical bits can instead be encoded using the four Bell states:
 
 $$
 00
 \rightarrow
-\frac{|00\rangle+|11\rangle}{\sqrt2}
+\frac{|00\rangle+|11\rangle}{\sqrt{2}}
 $$
 
 $$
 01
 \rightarrow
-\frac{|00\rangle-|11\rangle}{\sqrt2}
+\frac{|00\rangle-|11\rangle}{\sqrt{2}}
 $$
 
 $$
 10
 \rightarrow
-\frac{|01\rangle+|10\rangle}{\sqrt2}
+\frac{|01\rangle+|10\rangle}{\sqrt{2}}
 $$
 
 $$
 11
 \rightarrow
-\frac{|01\rangle-|10\rangle}{\sqrt2}.
+\frac{|01\rangle-|10\rangle}{\sqrt{2}}
 $$
 
 The important difference is:
@@ -532,26 +547,26 @@ The important difference is:
 
 ---
 
-## Looking at Only One Qubit
+### Looking at Only One Qubit
 
 Consider
 
 $$
 |\Phi^+\rangle
 =
-\frac{|00\rangle+|11\rangle}{\sqrt2}.
+\frac{|00\rangle+|11\rangle}{\sqrt{2}}
 $$
 
-If Alice measures only the first qubit:
+If Alice measures only the first qubit,
 
 $$
-P(0)=\frac12
+P(0)=\frac{1}{2}
 $$
 
 and
 
 $$
-P(1)=\frac12.
+P(1)=\frac{1}{2}
 $$
 
 Now consider
@@ -559,56 +574,52 @@ Now consider
 $$
 |\Phi^-\rangle
 =
-\frac{|00\rangle-|11\rangle}{\sqrt2}.
+\frac{|00\rangle-|11\rangle}{\sqrt{2}}
 $$
 
 Again,
 
 $$
-P(0)=\frac12
+P(0)=\frac{1}{2}
 $$
 
 and
 
 $$
-P(1)=\frac12.
+P(1)=\frac{1}{2}
 $$
 
 The same is true for all four Bell states.
 
-Therefore:
+Therefore, Alice cannot determine which Bell state she has by measuring only one qubit.
 
-$$
-\text{one qubit alone does not reveal which Bell state was encoded}.
-$$
-
-The two classical bits are stored globally in the two-qubit entangled state.
+The information is stored in the **joint two-qubit state**.
 
 ---
 
-## Local Operations Can Change Bell-Basis Information
+### Local Operations Can Change Bell-Basis Information
 
-Although Alice cannot read the two encoded bits from her single qubit, she can change the Bell state by applying local gates.
+Although Alice cannot read the encoded two bits from one qubit, she can change the Bell state by applying local gates.
 
-Using the Bell-state labeling above:
+Using the encoding above:
 
-- $X$ changes the first encoded bit.
-- $Z$ changes the second encoded bit.
-- $XZ$ changes both encoded bits.
+- $X$ changes the first encoded bit
+- $Z$ changes the second encoded bit
+- $XZ$ changes both encoded bits
 
 For example,
 
 $$
 |\Phi^+\rangle
 \xrightarrow{X}
-|\Psi^+\rangle.
+|\Psi^+\rangle
 $$
 
-This is the key idea behind superdense coding.
+This property is the key idea behind **superdense coding**.
 
 ---
 
-# 8.5 Measuring the Control Qubit of a Controlled-$U$
+## 8.5 Measuring the Control Qubit of a Controlled-$U$
 
 Consider a controlled-$U$ operation:
 
@@ -620,7 +631,7 @@ target  ──U──
 
 Suppose the control qubit is measured in the computational basis.
 
-There are two equivalent procedures.
+There are two equivalent ways to think about the process.
 
 ### Method 1
 
@@ -635,27 +646,15 @@ measure control
 ```text
 measure control
      ↓
-if control = 1, apply U
-if control = 0, do nothing
+control = 0 → do nothing
+control = 1 → apply U
 ```
 
-If the control is measured as
+If the control qubit is measured as $0$, then $U$ is not applied.
 
-$$
-0,
-$$
+If the control qubit is measured as $1$, then $U$ is applied.
 
-then $U$ is not applied.
-
-If the control is measured as
-
-$$
-1,
-$$
-
-then $U$ is applied.
-
-Therefore,
+Therefore, when the control qubit is measured in the computational basis,
 
 $$
 \text{measure before controlled-}U
@@ -663,22 +662,24 @@ $$
 \text{measure after controlled-}U
 $$
 
-when the control qubit is measured in the computational basis.
-
-This equivalence does not automatically hold for arbitrary measurement bases.
+This equivalence depends on using the **computational basis**.
 
 ---
 
 # Key Ideas
 
-1. A projective measurement tells us which subspace a state lies in.
+1. A projective measurement determines which subspace a quantum state belongs to.
 
-2. A projector satisfies
+2. An orthogonal projector satisfies
 
 $$
-\Pi^\dagger=\Pi,
-\qquad
-\Pi^2=\Pi.
+\Pi^\dagger=\Pi
+$$
+
+and
+
+$$
+\Pi^2=\Pi
 $$
 
 3. Measurement probability is
@@ -686,21 +687,19 @@ $$
 $$
 P(k)
 =
-\langle\psi|\Pi_k|\psi\rangle.
+\langle\psi|\Pi_k|\psi\rangle
 $$
 
-4. A local measurement acts only on selected qubits:
+4. Local measurement measures only selected qubits.
 
-$$
-|0\rangle\langle0|\otimes I,
-\qquad
-|1\rangle\langle1|\otimes I.
-$$
+5. Unmeasured qubits are represented by the identity operator $I$.
 
-5. Measuring one qubit projects the entire joint state into the corresponding subspace.
+6. Measuring one qubit projects the entire joint state into the corresponding subspace.
 
-6. Local operations on Bob's qubit do not change Alice's local measurement probabilities.
+7. Local operations on Bob's qubit cannot change Alice's local measurement probabilities.
 
-7. Bell-basis information is stored in the joint two-qubit state, so one qubit alone cannot reveal the encoded two bits.
+8. Bell-basis information is stored in the joint relationship between two qubits.
 
-8. In the computational basis, measuring the control qubit before or after a controlled-$U$ operation gives equivalent behavior.
+9. One qubit alone cannot reveal which Bell state was encoded.
+
+10. Measuring the control qubit of a controlled-$U$ in the computational basis can be moved before or after the controlled operation.
