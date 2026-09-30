@@ -107,3 +107,44 @@ Therefore, Alice and Bob now share an entangled state.
 Alice                         Bob
 
 first qubit  ← entangled →  second qubit
+
+
+
+## Superdense Coding Process
+
+1. Bob prepares a pair of entangled qubits.
+
+   ↓
+
+2. Bob keeps one qubit and sends the other qubit to Alice.
+
+   ↓
+
+3. Alice and Bob agree on the encoding rule in advance:
+
+   - `00` → apply \(I\)
+   - `01` → apply \(Z\)
+   - `10` → apply \(X\)
+   - `11` → apply \(XZ\)
+
+   ↓
+
+4. Alice applies the corresponding operation according to her two classical bits.
+
+   ↓
+
+5. The original Bell state is transformed into a different Bell state.
+
+   ↓
+
+6. Alice sends her qubit back to Bob.
+
+   ↓
+
+7. Bob performs a Bell measurement on the two qubits.
+
+   ↓
+
+8. Bob identifies which Bell state he obtained and recovers Alice's original two classical bits:
+
+   `00 / 01 / 10 / 11`
