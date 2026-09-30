@@ -93,13 +93,15 @@ Superdense coding uses three main steps.
 
 Bob prepares the Bell state
 
+### Bell State
+
 $$
 |\Phi^+\rangle
 =
 \frac{1}{\sqrt2}
 \left(
 |00\rangle+|11\rangle
-\right).
+\right)
 $$
 
 Bob keeps the second qubit and sends the first qubit to Alice.
@@ -109,4 +111,4 @@ Therefore, Alice and Bob now share an entangled state.
 ```text
 Alice                         Bob
 
- first qubit  ← entangled →  second qubit
+first qubit  ← entangled →  second qubit
