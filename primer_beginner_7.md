@@ -95,6 +95,8 @@ Bob prepares the Bell state
 
 
 
+# Bell State
+
 $$
 |\Phi^+\rangle
 =
