@@ -52,7 +52,7 @@ This type of additional qubit is often called an **ancilla qubit**.
 
 ---
 
-## 9.1 Example
+##  Example
 
 Suppose
 
@@ -103,7 +103,7 @@ We have only enlarged the quantum system by adding a known qubit.
 
 ---
 
-## 9.2 Vector Representation
+## Vector Representation
 
 The original state can be written as
 
@@ -167,7 +167,7 @@ and
 
 ---
 
-## 9.3 Matrix Representation
+##  Matrix Representation
 
 The operation can be represented by the matrix
 
@@ -223,7 +223,7 @@ So it maps a vector from a 2-dimensional space into a 4-dimensional space.
 
 ---
 
-## 9.4 Why Is This Not a Unitary Matrix?
+##  Why Is This Not a Unitary Matrix?
 
 A unitary matrix must be square.
 
@@ -272,7 +272,7 @@ Instead, it is an **isometry**.
 
 ---
 
-# 10. What Is an Isometry?
+#  What Is an Isometry?
 
 An isometry is a linear transformation that preserves inner products.
 
@@ -335,7 +335,7 @@ is an isometry.
 
 ---
 
-## 10.1 Unitary vs. Isometry
+##  Unitary vs. Isometry
 
 The main difference can be summarized as:
 
@@ -381,7 +381,7 @@ The important point is that the original quantum information is preserved.
 
 ---
 
-## 10.2 Important Intuition
+##  Important Intuition
 
 An isometry can be understood as embedding a smaller quantum system into a larger quantum system.
 
@@ -417,7 +417,7 @@ embed it into a larger Hilbert space
 
 ---
 
-## 10.3 Question: Is the Second Qubit a Fixed Value?
+##  Question: Is the Second Qubit a Fixed Value?
 
 For the mapping
 
@@ -497,7 +497,7 @@ So we are simply adding a new known qubit to enlarge the quantum system.
 
 ---
 
-## 10.4 Why Is This Useful?
+##  Why Is This Useful?
 
 Isometries are useful because they allow us to introduce auxiliary quantum systems.
 
@@ -525,7 +525,7 @@ exotic / generalized quantum measurements.
 
 ---
 
-## 10.5 Key Idea
+##  Key Idea
 
 The main idea of this section is:
 
