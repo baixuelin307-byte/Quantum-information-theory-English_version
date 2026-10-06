@@ -1,61 +1,130 @@
-## 9. Isometries and Exotic Measurements
+# 9. Isometries and Exotic Measurements
 
-Unitary operations are fundamental in quantum information, but more general operations are also allowed.
+Unitary operations are fundamental in quantum information processing.
 
-A simple example is adding a new qubit in a fixed state.
+However, quantum information also allows operations that are more general than unitary operations.
 
-Suppose the input is
+A simple example is:
 
-$$
+```text
+Input:  one qubit
+
+Output: the original qubit + one additional qubit
+```
+
+Suppose the input qubit is
+
+```math
 |\psi\rangle
-$$
+```
 
-and we add an extra qubit initialized to
+and we prepare another qubit in the fixed state
 
-$$
+```math
 |0\rangle.
-$$
+```
 
-The operation is
+Then the operation is
 
-$$
+```math
 |\psi\rangle
 \mapsto
-|\psi\rangle \otimes |0\rangle.
-$$
+|\psi\rangle\otimes|0\rangle.
+```
 
-The first qubit remains unchanged, while the second qubit is a known and fixed ancilla qubit.
+The original qubit remains unchanged.
 
-If
+The second qubit is a new qubit that we deliberately prepare in the known state
 
-$$
+```math
+|0\rangle.
+```
+
+Therefore:
+
+```text
+First qubit  = original quantum state
+
+Second qubit = fixed known state |0⟩
+```
+
+This type of additional qubit is often called an **ancilla qubit**.
+
+---
+
+## 9.1 Example
+
+Suppose
+
+```math
 |\psi\rangle
 =
-\alpha|0\rangle+\beta|1\rangle,
-$$
+\alpha|0\rangle+\beta|1\rangle.
+```
 
-then
+Then adding an ancilla qubit in state
 
-$$
+```math
+|0\rangle
+```
+
+gives
+
+```math
+|\psi\rangle\otimes|0\rangle
+=
+\left(
+\alpha|0\rangle+\beta|1\rangle
+\right)
+\otimes|0\rangle.
+```
+
+Therefore,
+
+```math
 |\psi\rangle\otimes|0\rangle
 =
 \alpha|00\rangle+\beta|10\rangle.
-$$
+```
 
-In vector form,
+So the mapping is
 
-$$
+```text
+α|0⟩ + β|1⟩
+
+        ↓
+
+α|00⟩ + β|10⟩
+```
+
+The original quantum information is preserved.
+
+We have only enlarged the quantum system by adding a known qubit.
+
+---
+
+## 9.2 Vector Representation
+
+The original state can be written as
+
+```math
 |\psi\rangle
 =
 \begin{bmatrix}
 \alpha\\
 \beta
-\end{bmatrix}
-$$
+\end{bmatrix}.
+```
 
-is mapped to
+After adding the qubit
 
-$$
+```math
+|0\rangle,
+```
+
+the state becomes
+
+```math
 |\psi\rangle\otimes|0\rangle
 =
 \begin{bmatrix}
@@ -64,23 +133,58 @@ $$
 \beta\\
 0
 \end{bmatrix}.
-$$
+```
 
-This mapping can be written as
+Therefore, the dimension changes from
 
-$$
-V=
+```text
+2-dimensional state vector
+```
+
+to
+
+```text
+4-dimensional state vector.
+```
+
+This corresponds to
+
+```text
+1 qubit  →  2 qubits
+```
+
+because
+
+```math
+2^1=2
+```
+
+and
+
+```math
+2^2=4.
+```
+
+---
+
+## 9.3 Matrix Representation
+
+The operation can be represented by the matrix
+
+```math
+V
+=
 \begin{bmatrix}
 1&0\\
 0&0\\
 0&1\\
 0&0
 \end{bmatrix}.
-$$
+```
 
-Therefore,
+Then
 
-$$
+```math
 V
 \begin{bmatrix}
 \alpha\\
@@ -93,106 +197,379 @@ V
 \beta\\
 0
 \end{bmatrix}.
-$$
+```
 
-The matrix $V$ is not unitary because it is a $4\times2$ matrix rather than a square matrix.
+Therefore,
 
-Instead, it is an **isometry**, satisfying
+```math
+V|\psi\rangle
+=
+|\psi\rangle\otimes|0\rangle.
+```
 
-$$
-V^\dagger V = I.
-$$
+The matrix
 
-An isometry can map a smaller Hilbert space into a larger Hilbert space while preserving the quantum information.
+```math
+V
+```
 
-### Unitary vs. Isometry
+has size
 
-A unitary operation maps between spaces of the same dimension:
+```text
+4 × 2.
+```
 
-$$
-\text{Unitary: same dimension}
-\rightarrow
-\text{same dimension}.
-$$
-
-An isometry can map a smaller space into a larger space:
-
-$$
-\text{Isometry: smaller dimension}
-\rightarrow
-\text{larger dimension}.
-$$
-
-In this example,
-
-$$
-\boxed{
-|\psi\rangle
-\rightarrow
-|\psi\rangle\otimes|0\rangle
-}
-$$
-
-means that the original qubit is preserved and a new qubit in the state $|0\rangle$ is added.
-
-This extra qubit is often called an **ancilla qubit**.
-
-Isometries will later be used to construct more general types of quantum measurements.
+So it maps a vector from a 2-dimensional space into a 4-dimensional space.
 
 ---
 
-### Question: Is the second qubit a fixed value?
+## 9.4 Why Is This Not a Unitary Matrix?
+
+A unitary matrix must be square.
+
+For example:
+
+```text
+2 × 2
+
+4 × 4
+
+8 × 8
+```
+
+A unitary operation normally maps a Hilbert space to another Hilbert space of the same dimension.
+
+For example:
+
+```text
+2 dimensions → 2 dimensions
+
+4 dimensions → 4 dimensions
+```
+
+However, the matrix
+
+```math
+V
+=
+\begin{bmatrix}
+1&0\\
+0&0\\
+0&1\\
+0&0
+\end{bmatrix}
+```
+
+has size
+
+```text
+4 × 2.
+```
+
+Therefore, it is not a unitary matrix.
+
+Instead, it is an **isometry**.
+
+---
+
+# 10. What Is an Isometry?
+
+An isometry is a linear transformation that preserves inner products.
+
+For an isometry
+
+```math
+V,
+```
+
+we have
+
+```math
+V^\dagger V=I.
+```
+
+For the previous example,
+
+```math
+V
+=
+\begin{bmatrix}
+1&0\\
+0&0\\
+0&1\\
+0&0
+\end{bmatrix}.
+```
+
+Its conjugate transpose is
+
+```math
+V^\dagger
+=
+\begin{bmatrix}
+1&0&0&0\\
+0&0&1&0
+\end{bmatrix}.
+```
+
+Therefore,
+
+```math
+V^\dagger V
+=
+\begin{bmatrix}
+1&0\\
+0&1
+\end{bmatrix}
+=
+I.
+```
+
+So
+
+```math
+V
+```
+
+is an isometry.
+
+---
+
+## 10.1 Unitary vs. Isometry
+
+The main difference can be summarized as:
+
+```text
+Unitary operation:
+
+same dimension
+      ↓
+same dimension
+```
+
+while
+
+```text
+Isometry:
+
+smaller dimension
+      ↓
+larger dimension
+```
+
+For example,
+
+```math
+|\psi\rangle
+\mapsto
+|\psi\rangle\otimes|0\rangle
+```
+
+maps
+
+```text
+1 qubit
+```
+
+to
+
+```text
+2 qubits.
+```
+
+The important point is that the original quantum information is preserved.
+
+---
+
+## 10.2 Important Intuition
+
+An isometry can be understood as embedding a smaller quantum system into a larger quantum system.
+
+For example:
+
+```text
+Original system:
+
+|ψ⟩
+```
+
+becomes
+
+```text
+Larger system:
+
+|ψ⟩ ⊗ |0⟩
+```
+
+The original state is not destroyed.
+
+Instead, we add an additional known quantum system.
+
+Therefore:
+
+```text
+Isometry
+=
+preserve the original quantum information
++
+embed it into a larger Hilbert space
+```
+
+---
+
+## 10.3 Question: Is the Second Qubit a Fixed Value?
 
 For the mapping
 
-$$
+```math
 |\psi\rangle
 \mapsto
 |\psi\rangle\otimes|0\rangle,
-$$
+```
 
 is the second qubit fixed and known?
 
 **Yes.**
 
-The second qubit is deliberately prepared in the fixed state
+The second qubit is deliberately prepared in the state
 
-$$
+```math
 |0\rangle.
-$$
+```
 
-It is not random and it is not an unknown quantum state.
+It is not random.
 
-If
+It is not an unknown quantum state.
 
-$$
+For example, if
+
+```math
 |\psi\rangle
 =
 \alpha|0\rangle+\beta|1\rangle,
-$$
+```
 
 then
 
-$$
+```math
 |\psi\rangle\otimes|0\rangle
 =
 \alpha|00\rangle+\beta|10\rangle.
-$$
+```
 
-The original qubit can still be in an arbitrary state $|\psi\rangle$, but the newly added qubit is always initialized as
+Therefore:
 
-$$
-|0\rangle.
-$$
+```text
+First qubit:
+
+arbitrary / unknown state |ψ⟩
+
+Second qubit:
+
+known fixed state |0⟩
+```
 
 So we can think of the operation as
 
-$$
-\boxed{
-\text{original unknown qubit}
-+
-\text{known fixed ancilla }|0\rangle
-}
-$$
+```text
+original unknown qubit
 
-The purpose is not to copy the unknown qubit. It is simply to enlarge the quantum system by adding a known auxiliary qubit.
++
+
+known fixed ancilla qubit |0⟩
+```
+
+The purpose is **not** to copy the unknown qubit.
+
+The operation does not produce
+
+```math
+|\psi\rangle\otimes|\psi\rangle.
+```
+
+Instead, it produces
+
+```math
+|\psi\rangle\otimes|0\rangle.
+```
+
+So we are simply adding a new known qubit to enlarge the quantum system.
+
+---
+
+## 10.4 Why Is This Useful?
+
+Isometries are useful because they allow us to introduce auxiliary quantum systems.
+
+These auxiliary systems can later interact with the original system through unitary operations.
+
+This idea is important for constructing more general quantum operations and more general quantum measurements.
+
+Therefore:
+
+```text
+Add ancilla qubits
+        ↓
+Apply larger quantum operations
+        ↓
+Perform measurements
+        ↓
+Obtain more general measurement procedures
+```
+
+This is why isometries are closely related to the next topic:
+
+```text
+exotic / generalized quantum measurements.
+```
+
+---
+
+## 10.5 Key Idea
+
+The main idea of this section is:
+
+```text
+Unitary operations are not the only valid operations in quantum information.
+```
+
+An isometry can enlarge the quantum system while preserving the original quantum information.
+
+The basic example is
+
+```math
+|\psi\rangle
+\mapsto
+|\psi\rangle\otimes|0\rangle.
+```
+
+Here,
+
+```text
+|ψ⟩ = original quantum state
+
+|0⟩ = known fixed ancilla qubit
+```
+
+and
+
+```math
+V^\dagger V=I.
+```
+
+So:
+
+```text
+Unitary:
+
+same Hilbert-space dimension
+
+
+Isometry:
+
+smaller Hilbert space
+        ↓
+larger Hilbert space
+```
+
+The next step is to use these isometries to construct more general forms of quantum measurement.
